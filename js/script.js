@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
     $('.fullpage').fullpage({
         scrollOverflow: true,
         scrollOverflowOptions: {click: false},
@@ -10,8 +10,14 @@ $(document).ready(function() {
         }
     });
     $(document).on('click', '.projects__mini a', changeImg);
+    $(document).on('input', '.calc', changeInput);
+
     function changeImg(event) {
         event.preventDefault();
         $('.projects__big img').attr('src', $(this).attr('data-src'));
+    }
+    function changeInput(event) {
+        event.preventDefault();
+        $(this).find('.calc__range output').val($(this).find('.calc__range input').val());
     }
 });
